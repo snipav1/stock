@@ -37,4 +37,4 @@ Very useful if a bash alias is created
 
 Modify .bashrc file with something like these Examples:
 
-    alias stock='python3 /<path>/stock.py -s your-symbol'
+    alias stock='python3 /<path>/stock.py -p your-symbol'
