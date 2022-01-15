@@ -6,10 +6,6 @@ import finnhub
 from termcolor import colored
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-s", "--symbol",
-                    dest="symbol",
-                    help="Set stock symbol",
-                    action='store')
 parser.add_argument("-l", "--lookup",
                     dest="lookup",
                     help="Search for stock symbol",
@@ -21,7 +17,6 @@ parser.add_argument("-p", "--profile",
 
 args = parser.parse_args()
 
-symbol = args.symbol if args.symbol else None
 lookup = args.lookup if args.lookup else None
 profile = args.profile if args.profile else None
 
@@ -29,17 +24,11 @@ profile = args.profile if args.profile else None
 API_KEY = os.environ['STOCK_API_KEY']
 
 
-def main(symbol=symbol, lookup=lookup, profile=profile):
+def main(lookup=lookup, profile=profile):
     finnhub_client = finnhub.Client(api_key=API_KEY)
-    if not symbol and not lookup and not profile:
+    if not lookup and not profile:
         print(parser.print_help())
         sys.exit('[!] Please provide a stock symbol. ie: DIS, AAPL\n')
-
-    if symbol:
-        symbol = symbol.upper()
-        response = finnhub_client.quote(symbol)
-        stock_price = f"${response['c']}"
-        print(f"{symbol}: {colored(stock_price,'blue')}")
     if lookup:
         response = finnhub_client.symbol_lookup(lookup)
         for stock in response['result']:
@@ -68,4 +57,4 @@ def main(symbol=symbol, lookup=lookup, profile=profile):
 
 
 if __name__ == '__main__':
-    main(symbol=symbol, lookup=lookup, profile=profile)
+    main(lookup=lookup, profile=profile)

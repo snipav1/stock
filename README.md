@@ -13,13 +13,12 @@ Setup:
 
 Usage:
 
-    - usage: stock.py [-h] [-s SYMBOL] [-l LOOKUP]
+    - usage: stock.py [-h] [-l LOOKUP] [-p PROFILE]
 
 Example Output:
 
-    python3 stock.py -s DIS
+    python3 stock.py -p DIS
     DIS: $151.94
-
 
 Optional:
 
