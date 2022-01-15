@@ -46,11 +46,6 @@ def main(lookup=lookup, profile=profile):
         print(f"{colored('*', 'green')}"*25)
         print(f"\t{colored(profile, 'green')}")
         print(f"{colored('*', 'green')}"*25)
-        # print(f"- Stock Name: {colored(stock_name,'blue')}")
-        # print(f"- Stock Country: {colored(stock_country,'blue')}")
-        # print(f"- Stock Exchange: {colored(stock_exchange,'blue')}")
-        # print(f"- Stock IPO: {colored(stock_ipo,'blue')}")s
-        # print(f"- Stock URL: {colored(stock_url,'blue')}")
         print(f"{colored('- Stock Name:','blue')} {stock_name}")
         print(f"{colored('- Stock Country:','blue')} {stock_country}")
         print(f"{colored('- Stock Exchange:','blue')} {stock_exchange}")
@@ -58,7 +53,6 @@ def main(lookup=lookup, profile=profile):
         print(f"{colored('- Stock URL:','blue')} {stock_url}")
         response = finnhub_client.quote(profile)
         stock_price = f"${response['c']}"
-        # print(f"- Stock Price: {colored(stock_price,'yellow')}")
         print(f"{colored('- Stock Price:','blue')} {colored(stock_price,'yellow')}")
 
 
